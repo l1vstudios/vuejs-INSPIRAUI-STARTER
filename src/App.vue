@@ -2,7 +2,7 @@
 import ParticlesBg from '@/components/ui/particles-bg/ParticlesBg.vue'
 import { computed, ref } from "vue"
 import { useColorMode } from "@vueuse/core"
-import { Sun, Moon, ChevronDown, Menu, X } from "lucide-vue-next" // tambah Menu & X icon
+import { Sun, Moon, ChevronDown, Menu, X } from "lucide-vue-next" 
 
 const colorMode = useColorMode()
 const isDark = computed(() => colorMode.value === "dark")
