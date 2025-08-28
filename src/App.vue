@@ -4,20 +4,17 @@ import { computed, ref } from "vue"
 import { useColorMode } from "@vueuse/core"
 import { Sun, Moon, ChevronDown, Menu, X } from "lucide-vue-next" // tambah Menu & X icon
 
-// dark mode toggle
 const colorMode = useColorMode()
 const isDark = computed(() => colorMode.value === "dark")
 const toggleDark = () => {
   colorMode.value = isDark.value ? "light" : "dark"
 }
 
-// mobile menu state
 const menuOpen = ref(false)
 </script>
 
 <template>
   <div class="relative h-screen w-screen overflow-hidden bg-background">
-    <!-- Particles Background -->
     <ParticlesBg
       class="absolute inset-0"
       :quantity="120"
@@ -27,13 +24,11 @@ const menuOpen = ref(false)
       refresh
     />
 
-    <!-- Navbar -->
     <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-5xl">
       <div
         class="flex items-center justify-between px-6 py-3 bg-neutral-900/90 text-white 
                rounded-2xl shadow-lg border border-neutral-800 backdrop-blur-md"
       >
-        <!-- Logo -->
         <div class="flex items-center gap-2 font-bold text-lg">
           <div class="bg-orange-600 p-2 rounded-md">
             <ChevronDown class="w-4 h-4" />
@@ -41,7 +36,6 @@ const menuOpen = ref(false)
           <span>DEMO</span>
         </div>
 
-        <!-- Menu (desktop) -->
         <div class="hidden md:flex items-center gap-6 ml-10 font-medium">
           <div class="flex items-center gap-1 cursor-pointer hover:text-orange-400">
             Features
@@ -53,9 +47,7 @@ const menuOpen = ref(false)
           <a href="#" class="hover:text-orange-400">FAQ</a>
         </div>
 
-        <!-- Right side: Theme toggle + Mobile button -->
         <div class="flex items-center gap-2">
-          <!-- Theme Toggle -->
           <button
             @click="toggleDark"
             class="p-2 rounded-full hover:bg-neutral-700 transition"
@@ -64,7 +56,6 @@ const menuOpen = ref(false)
             <Moon v-else class="w-5 h-5" />
           </button>
 
-          <!-- Mobile Menu Button -->
           <button
             @click="menuOpen = !menuOpen"
             class="md:hidden p-2 rounded-full hover:bg-neutral-700 transition"
@@ -75,7 +66,6 @@ const menuOpen = ref(false)
         </div>
       </div>
 
-      <!-- Mobile Menu -->
       <transition name="fade">
         <div
           v-if="menuOpen"
@@ -90,7 +80,6 @@ const menuOpen = ref(false)
       </transition>
     </nav>
 
-    <!-- Content Tengah -->
     <div class="relative z-10 flex h-full items-center justify-center">
       <h1 class="text-5xl font-bold text-white drop-shadow-lg">
         DEMO
